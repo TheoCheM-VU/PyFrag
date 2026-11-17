@@ -1,8 +1,8 @@
-"""
-Simple section extractor for PyFrag input files.
-
-This module provides basic regex-based extraction of sections from input files.
-"""
+#
+# Simple section extractor for PyFrag input files.
+#
+# This module provides basic regex-based extraction of sections from input files.
+#
 
 import re
 from pathlib import Path

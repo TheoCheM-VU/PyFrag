@@ -141,7 +141,7 @@ def main():
         shutil.rmtree(input_keys["restart_dir_name"])
     finish()
 
-    logging.info("PyFrag finished")
+    logger.info("PyFrag finished")
 
 
 if __name__ == "__main__":
