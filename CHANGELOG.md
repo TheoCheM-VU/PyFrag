@@ -13,7 +13,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 * The keys "frag1_indices", "frag2_indices", "frag1_energy", "frag2_energy" as these are more informative than the previous keys "fragment" and "strain" which were not clear about the meaning of the numbers. The old keys are still available for backward compatibility.
 * Testing infrastructure for the ADF calculations including tests for reading the PyFrag input for ADF jobs and splitting molecular trajectories into fragments.
 * Python packaging and virtual environment support for installing and running the PyFrag program using uv. Now, PyFrag can be installed on the cluster through `uv sync` which creates a venv. PyFrag can also installed as a pure python package using `pip install PyFrag`.
-* Dihedral angles are now supported which are printed in degrees (see the log file that is created when running the calculation for units)
+* Dihedral angles are now supported which are printed in degrees (see the log file that is created when running the calculation for units).
 * Custom errors for better error handling and debugging.
 
 ### Changed
@@ -45,6 +45,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 * The atom ordering from fragment to complex indices are now fixed. The error would arise when the fragment 1 and 2 indices were [2], and [1, 3, 4, 5, 6] which got sorted into [2 -> 1, 1 -> 2, 3 -> 3, 4 -> 4, 5 -> 5, 6 -> 6].
 * Fixed the `atom_list not defined error` [#2](https://github.com/TheoChem-VU/PyFrag/issues/2) for the orca executable. The error was caused by an bug in reading the input file which could not identify the atom indices corresponding to the bond parameters, e.g. `print bond [atom1] [atom2] [reference_length]`.
 * Fixed "division by zero" that happened in case there are no electrons / virtual orbitals present which made the sum of the IrrepOI terms zero, hence dividing by zero.
+* Fixed the `ImportError` bug of importing the `InputParser` class from the Plams version packaged in the AMS program for AMS2026; the developers renamed the `scm.input_parsers` module by `scm.base`.
 
 ### To do
 

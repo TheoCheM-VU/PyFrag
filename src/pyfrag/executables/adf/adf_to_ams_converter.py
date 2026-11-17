@@ -3,8 +3,12 @@
 
 import sys
 
-from scm.input_parser import InputParser  # noqa: F401  # type: ignore  # This is part of the *pre-compiled* AMS python environment and cannot be installed via pip install
 from scm.plams import AMSJob, Atom, Molecule, Settings
+
+try:
+    from scm.input_parser import InputParser  # type: ignore  # This is part of the *pre-compiled* AMS python environment and cannot be installed via pip install
+except ImportError:
+    from scm.base import InputParser
 
 
 def main_converter(content: str, is_file: bool = False) -> Settings:
