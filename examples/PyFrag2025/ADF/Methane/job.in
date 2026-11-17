@@ -14,7 +14,7 @@ echo "== Scratch dir. : ${TMPDIR}"
 
 # TC
 module load shared
-module load ams/2025.103
+module load ams/2026.105
 export SCM_TMPDIR="/scratch/${SLURM_JOBID}"
 srun mkdir -p ${SCM_TMPDIR}
 srun chmod 733 ${SCM_TMPDIR}
